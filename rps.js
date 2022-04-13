@@ -2,7 +2,7 @@
 
 const getUserChoice = userInput => {
     userInput = userInput.toLowerCase();
-    if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors') {
+    if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors' || userInput === 'bomb') {
         return userInput;
     } else {
         console.log('Error!');
@@ -45,10 +45,13 @@ function determineWinner(userChoice, computerChoice) {
             return 'You won!';
         }
     }
+    if (userChoice === 'bomb') {
+        return 'You cheated and used a bomb! You won!';
+    }
 };
 
 function playGame() {
-    const userChoice = getUserChoice('rock');
+    const userChoice = getUserChoice('bomb');
     console.log(`You chose ${userChoice}.`);
     
     const computerChoice = getComputerChoice();
